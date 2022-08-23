@@ -120,7 +120,16 @@
       setPasswordsCountText(passwords.length)
    }
 
-   btnPassword.onclick = () => {
+   btnPassword.onclick = submit
+
+   window.onkeyup = function (e) {
+      let key = e.key
+      if(key == 'Enter')
+         submit()
+      
+   }
+      
+   function submit() {
       let password = input.value
       if(!validatePassword(password))
          return
@@ -133,7 +142,9 @@
 
       localStorage.setItem('passwords', JSON.stringify(passwords))
       setPasswordsCountText(passwords.length)
+      
       input.value = ''
+      btnWrapper.classList.remove('show')
    }
 
    passwordsCount.onclick = () => {
