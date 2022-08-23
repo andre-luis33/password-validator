@@ -133,7 +133,7 @@
 
       localStorage.setItem('passwords', JSON.stringify(passwords))
       setPasswordsCountText(passwords.length)
-      // input.value = ''
+      input.value = ''
    }
 
    passwordsCount.onclick = () => {
